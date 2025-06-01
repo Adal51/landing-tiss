@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Automatize Guias TISS Odontológicas: Fotografe e Veja Tudo Pronto no Sistema da Operadora | Beta Odonto</title>
+  <title>Zero Digitação de Guias TISS Odontológicas | Beta Exclusivo - Economize 93%</title>
   <meta
     name="description"
-    content="Automatize guias TISS odontológicas: tire foto, envie pelo WhatsApp e veja tudo pronto no sistema da operadora. Restam 4 vagas Beta."
+    content="Solução exclusiva para clínicas odontológicas: chega de digitar guias TISS. Tire foto, envie pelo WhatsApp e veja tudo pronto no sistema do convênio. Economize 93% - Últimas 4 vagas Beta."
   />
   <style>
     * {
@@ -100,11 +100,19 @@
     }
 
     h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
       font-weight: 800;
-      margin-bottom: 20px;
-      line-height: 1.2;
+      margin-bottom: 10px;
+      line-height: 1.1;
       animation: slideUp 0.8s ease-out;
+    }
+
+    .subtitle {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 300;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      color: var(--primary);
     }
 
     @keyframes slideUp {
@@ -122,8 +130,8 @@
       font-size: 1.25rem;
       margin-bottom: 40px;
       opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto;
+      max-width: 700px;
+      margin: 0 auto 40px;
       animation: fadeIn 1s ease-out 0.3s forwards;
       opacity: 0;
     }
@@ -156,11 +164,48 @@
       box-shadow: 0 15px 40px rgba(0, 230, 118, 0.4);
     }
 
+    .hero .social-proof {
+      margin-top: 20px;
+      font-size: 0.95rem;
+      opacity: 0.8;
+      animation: fadeIn 1s ease-out 0.6s forwards;
+    }
+
     .social-proof {
       margin-top: 40px;
       font-size: 1rem;
       opacity: 0.8;
       animation: fadeIn 1s ease-out 0.7s forwards;
+    }
+
+    /* Time Comparison */
+    .time-comparison {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 50px auto 0;
+      max-width: 600px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      animation: fadeIn 1s ease-out 0.9s forwards;
+      opacity: 0;
+    }
+
+    .comparison-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px 0;
+    }
+
+    .before {
+      color: #ef4444;
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+
+    .after {
+      color: var(--primary);
+      font-weight: 600;
     }
 
     /* Problem Section */
@@ -178,9 +223,9 @@
 
     .pain-points {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 30px;
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
     }
 
@@ -215,10 +260,27 @@
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 40px;
       max-width: 800px;
       margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .steps .step:last-child {
+        grid-column: 1 / -1;
+        max-width: 250px;
+        margin: 0 auto;
+      }
     }
 
     .step {
@@ -245,6 +307,64 @@
       margin-bottom: 10px;
     }
 
+    .step-time {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    /* Process Comparison */
+    .process-comparison {
+      max-width: 800px;
+      margin: 50px auto 0;
+      background: var(--light-gray);
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .process-col h4 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .process-before h4 {
+      color: #ef4444;
+    }
+
+    .process-after h4 {
+      color: var(--primary);
+    }
+
+    .process-list {
+      list-style: none;
+    }
+
+    .process-list li {
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .total-time {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
     /* Pricing Section */
     .pricing {
       padding: 80px 0;
@@ -256,9 +376,33 @@
       color: var(--white);
     }
 
+    .pricing-highlight {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .savings-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--dark);
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .pricing-comparison {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
     .pricing-timeline {
       max-width: 900px;
-      margin: 0 auto 60px;
+      margin: 60px auto 0;
       background: rgba(255, 255, 255, 0.05);
       border-radius: 16px;
       padding: 40px;
@@ -268,6 +412,11 @@
     .timeline-header {
       text-align: center;
       margin-bottom: 30px;
+    }
+
+    .timeline-header h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
     }
 
     .timeline-phases {
@@ -329,15 +478,6 @@
       color: var(--primary);
     }
 
-    .pricing-comparison {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      padding: 30px;
-      max-width: 600px;
-      margin: 0 auto;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
     .comparison-table {
       width: 100%;
       margin-top: 20px;
@@ -366,16 +506,21 @@
       font-size: 1.2rem;
     }
 
-    /* CTA Adicional após preços */
-    .after-pricing-cta {
-      text-align: center;
-      margin-top: 40px;
-    }
-
     /* Beta Benefits */
     .beta-benefits {
       padding: 80px 0;
       background: var(--white);
+    }
+
+    .beta-hero {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .beta-hero h3 {
+      font-size: 1.5rem;
+      color: var(--secondary);
+      margin-bottom: 20px;
     }
 
     .benefits-grid {
@@ -384,8 +529,6 @@
       gap: 30px;
       max-width: 800px;
       margin: 0 auto;
-      justify-items: center;
-      align-items: start;
     }
 
     .benefit {
@@ -407,22 +550,10 @@
       color: var(--secondary);
     }
 
-    /* Onboarding Section */
-    .onboarding {
-      padding: 80px 0;
-      background: var(--light-gray);
-    }
-
-    .onboarding-title {
-      text-align: center;
-      font-size: 2.5rem;
-      color: var(--dark);
-    }
-
     /* FAQ Section */
     .faq {
       padding: 80px 0;
-      background: var(--white);
+      background: var(--light-gray);
     }
 
     .faq-container {
@@ -435,11 +566,11 @@
       border: 1px solid #e5e7eb;
       border-radius: 12px;
       overflow: hidden;
+      background: var(--white);
     }
 
     .faq-question {
       padding: 20px;
-      background: var(--light-gray);
       cursor: pointer;
       font-weight: 600;
       display: flex;
@@ -449,13 +580,14 @@
     }
 
     .faq-question:hover {
-      background: #e5e7eb;
+      background: var(--light-gray);
     }
 
     .faq-answer {
       padding: 20px;
       display: none;
       background: var(--white);
+      border-top: 1px solid #e5e7eb;
     }
 
     .faq-item.active .faq-answer {
@@ -508,13 +640,26 @@
       h1 {
         font-size: 2rem;
       }
+      .subtitle {
+        font-size: 1.2rem;
+      }
       .section-title {
         font-size: 1.8rem;
       }
-      .timeline-phases {
+      .pain-points {
         grid-template-columns: 1fr;
       }
+      .process-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
       .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+      .time-comparison {
+        padding: 20px;
+      }
+      .timeline-phases {
         grid-template-columns: 1fr;
       }
     }
@@ -537,22 +682,33 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <span class="badge">🔥 RESTAM 4 VAGAS BETA</span>
-        <h1>Automatize Guias TISS Odontológicas: Fotografe e Veja Tudo Pronto no Sistema da Operadora</h1>
+        <span class="badge">🔥 ECONOMIZE 93% - ÚLTIMAS 4 VAGAS BETA PARA CLÍNICAS ODONTOLÓGICAS</span>
+        <h1>Zero Digitação de Guias TISS</h1>
+        <p class="subtitle">Foto → WhatsApp → Sistema do Convênio</p>
         <p>
-          É simples para sua clínica odontológica: tire uma foto da guia TISS, envie pelo WhatsApp e veja 
-          tudo pronto no sistema da operadora sem digitar nada.
+          Sua clínica odontológica perde horas digitando guias TISS? Com nossa solução, é só tirar foto 
+          e enviar no WhatsApp. Em segundos, tudo aparece automaticamente no sistema do convênio.
         </p>
-        <a
-          href="https://wa.me/55219990402450?text=Quero%20garantir%20minha%20vaga%20Beta%20na%20automação%20de%20guias%20TISS%20odontológicas!"
+        <p class="social-proof">
+          Tínhamos 5 vagas Beta odontológicas e 1 já foi preenchida. Restam apenas 4.
+        </p>
+        
+          href="https://wa.me/55219990402450?text=Quero%20economizar%2093%25%20na%20automação%20de%20guias%20TISS%20odontológicas!"
           class="cta-button"
           target="_blank"
         >
-          <span>📱</span> Fale Conosco no WhatsApp
+          <span>📱</span> Quero Economizar 93% Agora
         </a>
-        <p class="social-proof">
-          Tínhamos 5 vagas Beta odontológicas e 1 já foi preenchida. Restam 4 vagas.
-        </p>
+        
+        <div class="time-comparison">
+          <h3 style="text-align: center; margin-bottom: 20px;">Compare o Tempo Gasto</h3>
+          <div class="comparison-row">
+            <span class="before">❌ ANTES: Digitar 10+ campos odontológicos → 5 minutos</span>
+          </div>
+          <div class="comparison-row">
+            <span class="after">✅ DEPOIS: Tirar 1 foto → 7 segundos</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -561,28 +717,28 @@
   <section class="problem">
     <div class="container">
       <h2 class="section-title animate-on-scroll">
-        Ainda Digitando Guias TISS Odontológicas Manualmente?
+        Sua Clínica Odontológica Ainda Digita Guias Manualmente?
       </h2>
       <div class="pain-points">
         <div class="pain-point animate-on-scroll">
           <div class="pain-icon">⏰</div>
-          <h3>Até 4 horas por dia</h3>
-          <p>Perda de tempo digitando guias odontológicas</p>
+          <h3>2 horas/dia perdidas</h3>
+          <p>Tempo que poderia atender mais pacientes odontológicos</p>
         </div>
         <div class="pain-point animate-on-scroll">
           <div class="pain-icon">❌</div>
           <h3>30% de glosas</h3>
-          <p>Erros de digitação geram retrabalho</p>
+          <p>Erros de digitação = retrabalho e perda de receita</p>
         </div>
         <div class="pain-point animate-on-scroll">
           <div class="pain-icon">💸</div>
-          <h3>R$ 5.000/mês</h3>
-          <p>Gastos com softwares complexos</p>
+          <h3>R$ 3.000/mês</h3>
+          <p>Em softwares complexos que ninguém usa direito</p>
         </div>
         <div class="pain-point animate-on-scroll">
-          <div class="pain-icon">📅</div>
-          <h3>Atrasos constantes</h3>
-          <p>Guias odontológicas chegam atrasadas</p>
+          <div class="pain-icon">😤</div>
+          <h3>Paciente esperando</h3>
+          <p>Enquanto alguém digita guias odontológicas campo por campo</p>
         </div>
       </div>
     </div>
@@ -592,26 +748,54 @@
   <section class="solution">
     <div class="container">
       <h2 class="section-title animate-on-scroll">
-        Como Funciona na Prática (Clínica Odonto)
+        Processo Simples em 3 Passos
       </h2>
       <div class="steps">
         <div class="step animate-on-scroll">
           <div class="step-number">1</div>
           <h3>📸 Fotografe</h3>
-          <p>Tire uma foto da guia TISS odontológica.</p>
+          <p>Tire uma foto da guia TISS odontológica</p>
+          <p class="step-time">5 segundos</p>
         </div>
         <div class="step animate-on-scroll">
           <div class="step-number">2</div>
           <h3>📱 Envie</h3>
-          <p>Envie a imagem pelo WhatsApp para nosso número.</p>
+          <p>WhatsApp que você já usa</p>
+          <p class="step-time">2 segundos</p>
         </div>
         <div class="step animate-on-scroll">
           <div class="step-number">3</div>
-          <h3>✅ Veja</h3>
-          <p>
-            Os dados extraídos da guia odontológica aparecem diretamente na
-            plataforma do convênio.
-          </p>
+          <h3>✅ Pronto</h3>
+          <p>Já está no sistema do convênio</p>
+          <p class="step-time">Automático</p>
+        </div>
+      </div>
+
+      <div class="process-comparison animate-on-scroll">
+        <h3 style="text-align: center;">Comparação Real do Processo para Clínicas Odontológicas</h3>
+        <div class="process-grid">
+          <div class="process-before">
+            <h4>❌ Processo Atual</h4>
+            <ul class="process-list">
+              <li>📝 Pegar a guia odontológica física</li>
+              <li>💻 Abrir o sistema</li>
+              <li>⌨️ Digitar 10+ campos</li>
+              <li>👀 Conferir tudo</li>
+              <li>💾 Salvar e enviar</li>
+            </ul>
+            <p class="total-time">Total: 5 minutos por guia</p>
+          </div>
+          <div class="process-after">
+            <h4>✅ Com Nossa Solução</h4>
+            <ul class="process-list">
+              <li>📸 Tirar foto (5s)</li>
+              <li>📱 Enviar WhatsApp (2s)</li>
+              <li>✨ Processamento automático</li>
+              <li>✅ Dados no sistema</li>
+              <li>🎉 Próximo paciente!</li>
+            </ul>
+            <p class="total-time" style="color: var(--primary);">Total: 7 segundos!</p>
+          </div>
         </div>
       </div>
     </div>
@@ -621,13 +805,41 @@
   <section class="pricing">
     <div class="container">
       <h2 class="section-title animate-on-scroll">
-        Programa Beta Odonto com Preços Progressivos
+        Preço Especial Beta: Economize 93%
       </h2>
+
+      <div class="pricing-highlight animate-on-scroll">
+        <span class="savings-badge">Economize 93% - Últimas 4 Vagas</span>
+      </div>
+
+      <div class="pricing-comparison animate-on-scroll">
+        <h3 style="text-align: center; margin-bottom: 20px;">
+          Compare os Custos por Guia
+        </h3>
+        <table class="comparison-table">
+          <tr>
+            <td>❌ Digitação Manual*</td>
+            <td>R$ 5,00/guia</td>
+          </tr>
+          <tr>
+            <td>📊 Preço Normal (pós-beta)</td>
+            <td>R$ 1,00/guia</td>
+          </tr>
+          <tr>
+            <td>🔥 Preço Beta (você paga)</td>
+            <td class="highlight">R$ 0,33/guia</td>
+          </tr>
+        </table>
+        <p style="text-align: center; margin-top: 20px; font-size: 0.85rem; opacity: 0.8;">
+          *Estimativa baseada no custo médio de mão de obra para digitação manual
+        </p>
+      </div>
 
       <div class="pricing-timeline animate-on-scroll">
         <div class="timeline-header">
-          <h3>Preço que Cresce com o Valor Entregue</h3>
-          <p>Comece pagando menos enquanto ajustamos ao fluxo odontológico.</p>
+          <h3>Programa Beta Odonto com Preços Progressivos</h3>
+          <p>Preço que Cresce com o Valor Entregue</p>
+          <p style="font-size: 0.95rem; opacity: 0.9;">Comece pagando menos enquanto ajustamos ao fluxo odontológico.</p>
         </div>
 
         <div class="timeline-phases">
@@ -678,37 +890,13 @@
         </p>
       </div>
 
-      <div class="pricing-comparison animate-on-scroll">
-        <h3 style="text-align: center; margin-bottom: 20px;">
-          Compare e Economize
-        </h3>
-        <table class="comparison-table">
-          <tr>
-            <td>❌ Digitação Manual</td>
-            <td>R$ 5,00/guia</td>
-          </tr>
-          <tr>
-            <td>📊 Plano Standard (não Beta)</td>
-            <td>R$ 1,00/guia</td>
-          </tr>
-          <tr>
-            <td>🔥 Beta Odonto</td>
-            <td class="highlight">R$ 0,33/guia</td>
-          </tr>
-        </table>
-        <p style="text-align: center; margin-top: 20px; font-size: 1.2rem; font-weight: 600;">
-          Economia de até 93% comparado ao manual!
-        </p>
-      </div>
-
-      <!-- CTA Adicional após preços -->
-      <div class="after-pricing-cta">
-        <a
-          href="https://wa.me/55219990402450?text=Quero%20saber%20mais%20sobre%20o%20Programa%20Beta%20Odonto"
+      <div style="text-align: center; margin-top: 40px;">
+        
+          href="https://wa.me/55219990402450?text=Quero%20garantir%20minha%20vaga%20Beta%20odontológica%20com%2093%25%20de%20desconto!"
           class="cta-button"
           target="_blank"
         >
-          <span>📱</span> Mais Informações no WhatsApp
+          <span>📱</span> Garantir Minha Vaga Beta
         </a>
       </div>
     </div>
@@ -718,111 +906,111 @@
   <section class="beta-benefits">
     <div class="container">
       <h2 class="section-title animate-on-scroll">
-        Benefícios Exclusivos Beta Odonto
+        Por Que Ser Um Dos 5 Pioneiros?
       </h2>
+      
+      <div class="beta-hero animate-on-scroll">
+        <h3>Co-criação: Seu Feedback Molda o Produto</h3>
+        <p>Ajude a construir a solução perfeita para clínicas odontológicas como a sua</p>
+      </div>
+
       <div class="benefits-grid">
         <div class="benefit animate-on-scroll">
           <div class="benefit-icon">💰</div>
-          <h3>Preço Congelado</h3>
-          <p>Mantenha o preço Beta por 12 meses, mesmo com novos recursos</p>
+          <h3>Preço Congelado 12 Meses</h3>
+          <p>R$ 0,33/guia mesmo com novos recursos</p>
         </div>
         <div class="benefit animate-on-scroll">
           <div class="benefit-icon">🎯</div>
-          <h3>Acesso Prioritário</h3>
-          <p>Seja o primeiro dentista a testar e enviar feedback ao nosso time</p>
+          <h3>Acesso Direto ao CEO</h3>
+          <p>Suas sugestões odontológicas implementadas em dias</p>
         </div>
         <div class="benefit animate-on-scroll">
-          <div class="benefit-icon">💬</div>
-          <h3>Canal Direto com o CEO</h3>
-          <p>Suporte dedicado para ajustes e sugestões focadas em clínica odontológica</p>
+          <div class="benefit-icon">🚀</div>
+          <h3>Recursos Exclusivos</h3>
+          <p>Teste primeiro as novidades do sistema</p>
         </div>
         <div class="benefit animate-on-scroll">
           <div class="benefit-icon">🏆</div>
-          <h3>Desconto Vitalício</h3>
-          <p>Nunca pague mais que 50% do preço standard ao final do Beta</p>
+          <h3>Desconto Vitalício 50%</h3>
+          <p>Nunca pague o preço cheio após o beta</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Onboarding Section -->
-  <section class="onboarding">
-    <div class="container">
-      <h2 class="onboarding-title animate-on-scroll">Pronto para Usar em 48 Horas</h2>
     </div>
   </section>
 
   <!-- FAQ Section -->
   <section class="faq">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">Perguntas Frequentes</h2>
+      <h2 class="section-title animate-on-scroll">Dúvidas Frequentes</h2>
       <div class="faq-container">
         <div class="faq-item animate-on-scroll">
           <div class="faq-question">
-            <span>Funciona com quais convênios odontológicos?</span>
+            <span>A única solução que usa WhatsApp para clínicas odontológicas?</span>
             <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
             <p>
-              Hoje já rodamos com os maiores convênios odontológicos do mercado.<br />
-              Adoraríamos treinar para suportar todos os convênios que seu consultório
-              utiliza.<br />
-              Você só começa a pagar quando entregarmos 80% do volume de guias que sua
-              clínica envia.
+              Sim! Sem app novo, sem login, sem treinamento. Use o WhatsApp 
+              que sua equipe odontológica já tem no celular. É literalmente tirar foto e 
+              enviar como se fosse uma mensagem normal.
             </p>
           </div>
         </div>
 
         <div class="faq-item animate-on-scroll">
           <div class="faq-question">
-            <span>E se a foto estiver torta ou borrada?</span>
+            <span>E se a foto estiver torta ou com sombra?</span>
             <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
             <p>
-              Nossa IA é treinada para lidar com fotos em várias condições, com até
-              95% de acerto na primeira tentativa.<br />
-              Mesmo com imperfeições, raramente será necessário reenvio.
+              Nossa IA foi treinada com milhares de fotos reais de consultórios odontológicos. 
+              Funciona com 95% de precisão mesmo com fotos tortas, com sombra 
+              ou tiradas rapidamente. Raramente precisa reenviar.
             </p>
           </div>
         </div>
 
         <div class="faq-item animate-on-scroll">
           <div class="faq-question">
-            <span>Preciso treinar minha equipe odontológica?</span>
+            <span>Quais convênios já funcionam?</span>
             <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
             <p>
-              Basta saber tirar foto e enviar pelo WhatsApp.<br />
-              Se seu time já usa WhatsApp, não há nenhum treinamento extra.
+              Já integramos com os principais convênios odontológicos. 
+              Como beta tester, você nos ajuda a adicionar os convênios 
+              específicos da sua clínica odontológica. Só começa a pagar quando funcionar 
+              com 80% das suas guias.
             </p>
           </div>
         </div>
 
         <div class="faq-item animate-on-scroll">
           <div class="faq-question">
-            <span>Como fica a segurança dos dados dos pacientes?</span>
+            <span>É seguro enviar guias pelo WhatsApp?</span>
             <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
             <p>
-              Seguimos todas as normas da LGPD. Os dados odontológicos são criptografados,
-              processados e deletados automaticamente após envio.<br />
-              Não armazenamos informações sensíveis dos pacientes.
+              Totalmente! Seguimos LGPD, criptografia ponta-a-ponta do WhatsApp, 
+              processamento em servidores seguros e exclusão automática após 
+              processamento. Não armazenamos dados de pacientes odontológicos.
             </p>
           </div>
         </div>
 
         <div class="faq-item animate-on-scroll">
           <div class="faq-question">
-            <span>Posso cancelar a qualquer momento?</span>
+            <span>Posso cancelar se não gostar?</span>
             <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
             <p>
-              Sim! Sem fidelidade, sem multas. Após o Beta, você decide se mantém o plano
-              standard odontológico.
+              Claro! Sem fidelidade, sem multa, sem pegadinha. Se não economizar 
+              pelo menos 2h/dia da sua equipe odontológica, cancele quando quiser. Mas 
+              apostamos que você vai adorar a liberdade de nunca mais digitar guias TISS!
             </p>
           </div>
         </div>
@@ -834,18 +1022,18 @@
   <section class="final-cta">
     <div class="container">
       <div class="urgency-box animate-on-scroll">
-        <h2>Vagas Beta Odonto Limitadas</h2>
-        <p class="spots-remaining">Apenas 4 Vagas Restantes</p>
+        <h2>Últimas Vagas para Clínicas Odontológicas</h2>
+        <p class="spots-remaining">4 Vagas Restantes</p>
         <p style="margin-top: 20px; font-size: 1.1rem;">
-          Seja um dos pioneiros e envie suas guias TISS odontológicas pelo WhatsApp com
-          entrega direta na plataforma da operadora!
+          Seja uma das 5 clínicas pioneiras a eliminar a digitação de guias TISS. 
+          Economize 93% e ajude a criar a solução ideal para odontologia.
         </p>
-        <a
-          href="https://wa.me/55219990402450?text=Quero%20garantir%20minha%20vaga%20Beta%20na%20automação%20de%20guias%20TISS%20odontológicas!"
+        
+          href="https://wa.me/55219990402450?text=Quero%20ser%20um%20dos%20pioneiros%20Beta%20odontológicos!"
           class="cta-button"
           target="_blank"
         >
-          <span>📱</span> Fale Conosco no WhatsApp
+          <span>📱</span> Quero Minha Vaga Beta Odontológica
         </a>
       </div>
     </div>
