@@ -206,9 +206,9 @@
 
         .steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -393,26 +393,10 @@
             background: var(--light-gray);
         }
 
-        .onboarding-steps {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            max-width: 800px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .onboarding-step {
+        .onboarding-title {
             text-align: center;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .onboarding-step-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: var(--primary);
+            font-size: 2.5rem;
+            color: var(--dark);
         }
 
         /* FAQ Section */
@@ -501,21 +485,14 @@
             .hero {
                 padding: 60px 0;
             }
-
             h1 {
                 font-size: 2rem;
             }
-
             .section-title {
                 font-size: 1.8rem;
             }
-
             .timeline-phases {
                 grid-template-columns: 1fr;
-            }
-
-            .onboarding-steps {
-                flex-direction: column;
             }
         }
 
@@ -594,13 +571,8 @@
                 </div>
                 <div class="step animate-on-scroll">
                     <div class="step-number">3</div>
-                    <h3>✅ Receba</h3>
-                    <p>Os dados extraídos são processados automaticamente.</p>
-                </div>
-                <div class="step animate-on-scroll">
-                    <div class="step-number">4</div>
-                    <h3>📊 Baixe</h3>
-                    <p>Basta fazer upload na plataforma do convênio quando a fase permitir.</p>
+                    <h3>✅ Veja</h3>
+                    <p>Os dados extraídos aparecem diretamente na plataforma do convênio.</p>
                 </div>
             </div>
         </div>
@@ -641,7 +613,7 @@
                         <ul>
                             <li>Tudo da Fase 1 +</li>
                             <li>Arquivo XML pronto para upload manual</li>
-                            <li>*Sem integração direta - Upload direto no sistema da operadora</li>
+                            <li>*Sem integração direta – upload no sistema do convênio</li>
                             <li>Detecção automática de erros</li>
                         </ul>
                     </div>
@@ -685,6 +657,13 @@
                     Economia de até 93% comparado ao manual!
                 </p>
             </div>
+
+            <!-- CTA Adicional após preços -->
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://wa.me/55219990402450?text=Quero%20saber%20mais%20sobre%20o%20Programa%20Beta" class="cta-button" target="_blank">
+                    <span>📱</span> Quero Mais Informações no WhatsApp
+                </a>
+            </div>
         </div>
     </section>
 
@@ -720,24 +699,7 @@
     <!-- Onboarding Section -->
     <section class="onboarding">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Pronto para Usar em 48 Horas</h2>
-            <div class="onboarding-steps">
-                <div class="onboarding-step animate-on-scroll">
-                    <div class="onboarding-step-icon">📝</div>
-                    <h3>Cadastro em 5 minutos</h3>
-                    <p>Processo 100% online</p>
-                </div>
-                <div class="onboarding-step animate-on-scroll">
-                    <div class="onboarding-step-icon">🚀</div>
-                    <h3>Suporte Dedicado com o CEO</h3>
-                    <p>Ajuda contínua para qualquer dúvida ou ajuste</p>
-                </div>
-                <div class="onboarding-step animate-on-scroll">
-                    <div class="onboarding-step-icon">✅</div>
-                    <h3>Pronto para usar</h3>
-                    <p>Basta tirar foto da guia e enviar – o resto é conosco</p>
-                </div>
-            </div>
+            <h2 class="onboarding-title animate-on-scroll">Pronto para Usar em 48 Horas</h2>
         </div>
     </section>
 
