@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Envie Guias TISS pelo WhatsApp e Receba no Sistema da Operadora | Beta Exclusivo</title>
-  <meta name="description" content="Automatize o envio de guias TISS: tire foto, envie pelo WhatsApp e receba os dados diretamente na plataforma da operadora. 4 vagas Beta restantes.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Envie Guias TISS Odontológicas pelo WhatsApp | Beta Clínica Odonto</title>
+  <meta
+    name="description"
+    content="Automatize o envio de guias TISS odontológicas: tire foto, envie pelo WhatsApp e receba os dados diretamente na plataforma da operadora. Restam 4 vagas Beta."
+  />
   <style>
     * {
       margin: 0;
@@ -13,14 +16,14 @@
     }
 
     :root {
-      --primary: #00E676;
-      --primary-dark: #00C853;
-      --secondary: #1976D2;
-      --dark: #0A1628;
+      --primary: #00e676;
+      --primary-dark: #00c853;
+      --secondary: #1976d2;
+      --dark: #0a1628;
       --gray: #64748b;
       --light-gray: #f8fafc;
       --white: #ffffff;
-      --gradient: linear-gradient(135deg, #00E676 0%, #1976D2 100%);
+      --gradient: linear-gradient(135deg, #00e676 0%, #1976d2 100%);
     }
 
     body {
@@ -39,7 +42,7 @@
 
     /* Hero Section */
     .hero {
-      background: linear-gradient(135deg, #0A1628 0%, #1a2942 100%);
+      background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
       color: var(--white);
       padding: 80px 0;
       position: relative;
@@ -58,8 +61,13 @@
     }
 
     @keyframes pulse {
-      0%, 100% { transform: scale(1) rotate(0deg); }
-      50% { transform: scale(1.1) rotate(180deg); }
+      0%,
+      100% {
+        transform: scale(1) rotate(0deg);
+      }
+      50% {
+        transform: scale(1.1) rotate(180deg);
+      }
     }
 
     .hero-content {
@@ -121,7 +129,9 @@
     }
 
     @keyframes fadeIn {
-      to { opacity: 0.9; }
+      to {
+        opacity: 0.9;
+      }
     }
 
     .cta-button {
@@ -370,16 +380,20 @@
 
     .benefits-grid {
       display: grid;
-      /* Dois elementos por linha para 4 itens */
       grid-template-columns: repeat(2, 1fr);
       gap: 30px;
       max-width: 800px;
       margin: 0 auto;
+      justify-items: center;
+      align-items: start;
     }
 
     .benefit {
       text-align: center;
       padding: 30px;
+      background: var(--light-gray);
+      border-radius: 16px;
+      width: 100%;
     }
 
     .benefit-icon {
@@ -501,7 +515,6 @@
         grid-template-columns: 1fr;
       }
       .benefits-grid {
-        /* No mobile, apenas 1 coluna */
         grid-template-columns: 1fr;
       }
     }
@@ -525,12 +538,23 @@
     <div class="container">
       <div class="hero-content">
         <span class="badge">🔥 RESTAM 4 VAGAS BETA</span>
-        <h1>Envie Sua Guia TISS pelo WhatsApp e Receba Diretamente na Plataforma da Operadora</h1>
-        <p>É simples: fotografe sua guia, envie pelo WhatsApp e receba os dados extraídos na plataforma do convênio sem complicações.</p>
-        <a href="https://wa.me/55219990402450?text=Quero%20garantir%20minha%20vaga%20Beta%20na%20automação%20de%20guias%20TISS!" class="cta-button" target="_blank">
+        <h1>Envie Guias TISS Odontológicas pelo WhatsApp</h1>
+        <p>
+          É simples para sua clínica odontológica: fotografe a guia TISS,
+          envie pelo WhatsApp e receba os dados extraídos diretamente na
+          plataforma do convênio.
+        </p>
+        <a
+          href="https://wa.me/55219990402450?text=Quero%20garantir%20minha%20vaga%20Beta%20na%20automação%20de%20guias%20TISS%20odontológicas!"
+          class="cta-button"
+          target="_blank"
+        >
           <span>📱</span> Fale Conosco no WhatsApp
         </a>
-        <p class="social-proof">Tínhamos 5 vagas e 1 já foi preenchida. Restam 4 vagas.</p>
+        <p class="social-proof">
+          Tínhamos 5 vagas Beta odontológicas e 1 já foi preenchida. Restam
+          4 vagas.
+        </p>
       </div>
     </div>
   </section>
@@ -538,12 +562,14 @@
   <!-- Problem Section -->
   <section class="problem">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">Ainda Digitando Guias TISS Manualmente?</h2>
+      <h2 class="section-title animate-on-scroll">
+        Ainda Digitando Guias TISS Odontológicas Manualmente?
+      </h2>
       <div class="pain-points">
         <div class="pain-point animate-on-scroll">
           <div class="pain-icon">⏰</div>
           <h3>Até 4 horas por dia</h3>
-          <p>Perda de tempo digitando guias manualmente</p>
+          <p>Perda de tempo digitando guias odontológicas</p>
         </div>
         <div class="pain-point animate-on-scroll">
           <div class="pain-icon">❌</div>
@@ -558,7 +584,7 @@
         <div class="pain-point animate-on-scroll">
           <div class="pain-icon">📅</div>
           <h3>Atrasos constantes</h3>
-          <p>Guias chegam atrasadas à operadora</p>
+          <p>Guias odontológicas chegam atrasadas</p>
         </div>
       </div>
     </div>
@@ -567,22 +593,27 @@
   <!-- Solution Section -->
   <section class="solution">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">Como Funciona na Prática</h2>
+      <h2 class="section-title animate-on-scroll">
+        Como Funciona na Prática (Clínica Odonto)
+      </h2>
       <div class="steps">
         <div class="step animate-on-scroll">
           <div class="step-number">1</div>
           <h3>📸 Fotografe</h3>
-          <p>Tire uma foto da guia (consulta, SADT, internação).</p>
+          <p>Tire uma foto da guia TISS odontológica.</p>
         </div>
         <div class="step animate-on-scroll">
           <div class="step-number">2</div>
           <h3>📱 Envie</h3>
-          <p>Envie a imagem pelo WhatsApp para o nosso número.</p>
+          <p>Envie a imagem pelo WhatsApp para nosso número.</p>
         </div>
         <div class="step animate-on-scroll">
           <div class="step-number">3</div>
           <h3>✅ Veja</h3>
-          <p>Os dados extraídos aparecem diretamente na plataforma do convênio.</p>
+          <p>
+            Os dados extraídos da guia odontológica aparecem diretamente na
+            plataforma do convênio.
+          </p>
         </div>
       </div>
     </div>
@@ -591,12 +622,14 @@
   <!-- Pricing Section -->
   <section class="pricing">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">Programa Beta com Preços Progressivos</h2>
+      <h2 class="section-title animate-on-scroll">
+        Programa Beta Odonto com Preços Progressivos
+      </h2>
 
       <div class="pricing-timeline animate-on-scroll">
         <div class="timeline-header">
           <h3>Preço que Cresce com o Valor Entregue</h3>
-          <p>Comece pagando menos enquanto ajustamos junto ao seu fluxo.</p>
+          <p>Comece pagando menos enquanto ajustamos ao fluxo odontológico.</p>
         </div>
 
         <div class="timeline-phases">
@@ -607,10 +640,10 @@
             </div>
             <div class="phase-price">R$ 199/mês</div>
             <ul>
-              <li>Extração automática de dados</li>
+              <li>Extração automática de dados odontológicos</li>
               <li>Planilha Excel formatada</li>
               <li>Validação de campos obrigatórios</li>
-              <li>600 guias inclusas</li>
+              <li>600 guias odontológicas inclusas</li>
             </ul>
           </div>
 
@@ -636,7 +669,7 @@
             <div class="phase-price">R$ 399/mês</div>
             <ul>
               <li>Tudo da Fase 2 +</li>
-              <li>Integração direta com convênios</li>
+              <li>Integração direta com convênios odontológicos</li>
               <li>Upload automático na plataforma da operadora</li>
               <li>Dashboard de faturamento e alertas de glosas</li>
             </ul>
@@ -648,7 +681,9 @@
       </div>
 
       <div class="pricing-comparison animate-on-scroll">
-        <h3 style="text-align: center; margin-bottom: 20px;">Compare e Economize</h3>
+        <h3 style="text-align: center; margin-bottom: 20px;">
+          Compare e Economize
+        </h3>
         <table class="comparison-table">
           <tr>
             <td>❌ Digitação Manual</td>
@@ -659,7 +694,7 @@
             <td>R$ 1,00/guia</td>
           </tr>
           <tr>
-            <td>🔥 Beta Founders</td>
+            <td>🔥 Beta Odonto</td>
             <td class="highlight">R$ 0,33/guia</td>
           </tr>
         </table>
@@ -670,8 +705,12 @@
 
       <!-- CTA Adicional após preços -->
       <div class="after-pricing-cta">
-        <a href="https://wa.me/55219990402450?text=Quero%20saber%20mais%20sobre%20o%20Programa%20Beta" class="cta-button" target="_blank">
-          <span>📱</span> Quero Mais Informações no WhatsApp
+        <a
+          href="https://wa.me/55219990402450?text=Quero%20saber%20mais%20sobre%20o%20Programa%20Beta%20Odonto"
+          class="cta-button"
+          target="_blank"
+        >
+          <span>📱</span> Mais Informações no WhatsApp
         </a>
       </div>
     </div>
@@ -680,7 +719,9 @@
   <!-- Beta Benefits -->
   <section class="beta-benefits">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">Benefícios Exclusivos Beta Founders</h2>
+      <h2 class="section-title animate-on-scroll">
+        Benefícios Exclusivos Beta Odonto
+      </h2>
       <div class="benefits-grid">
         <div class="benefit animate-on-scroll">
           <div class="benefit-icon">💰</div>
@@ -690,12 +731,12 @@
         <div class="benefit animate-on-scroll">
           <div class="benefit-icon">🎯</div>
           <h3>Acesso Prioritário</h3>
-          <p>Seja o primeiro a testar e ter feedback com nosso time</p>
+          <p>Seja o primeiro dentista a testar e enviar feedback ao nosso time</p>
         </div>
         <div class="benefit animate-on-scroll">
           <div class="benefit-icon">💬</div>
           <h3>Canal Direto com o CEO</h3>
-          <p>Suporte dedicado para ajustes e sugestões</p>
+          <p>Suporte dedicado para ajustes e sugestões focadas em clínica odontológica</p>
         </div>
         <div class="benefit animate-on-scroll">
           <div class="benefit-icon">🏆</div>
@@ -720,14 +761,16 @@
       <div class="faq-container">
         <div class="faq-item animate-on-scroll">
           <div class="faq-question">
-            <span>Funciona com quais convênios?</span>
+            <span>Funciona com quais convênios odontológicos?</span>
             <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
             <p>
-              Hoje já rodamos com os maiores convênios do mercado.<br>
-              Adoraríamos treinar para suportar todos os convênios que sua clínica utiliza.<br>
-              Você só começa a pagar quando estivermos entregando 80% do volume de guias que você envia.
+              Hoje já rodamos com os maiores convênios odontológicos do mercado.<br />
+              Adoraríamos treinar para suportar todos os convênios que seu consultório
+              utiliza.<br />
+              Você só começa a pagar quando entregarmos 80% do volume de guias que sua
+              clínica envia.
             </p>
           </div>
         </div>
@@ -739,33 +782,35 @@
           </div>
           <div class="faq-answer">
             <p>
-              Nossa IA é treinada para lidar com fotos em várias condições, com até 95% de acerto na primeira tentativa.<br>
-              Mesmo quando houver alguma imperfeição, raramente será necessário reenvio.
+              Nossa IA é treinada para lidar com fotos em várias condições, com até
+              95% de acerto na primeira tentativa.<br />
+              Mesmo com imperfeições, raramente será necessário reenvio.
             </p>
           </div>
         </div>
 
         <div class="faq-item animate-on-scroll">
           <div class="faq-question">
-            <span>Preciso treinar minha equipe?</span>
+            <span>Preciso treinar minha equipe odontológica?</span>
             <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
             <p>
-              Basta saber tirar uma foto e enviar pelo WhatsApp.<br>
-              Se sua equipe já usa WhatsApp, não há nenhum treinamento extra.
+              Basta saber tirar foto e enviar pelo WhatsApp.<br />
+              Se seu time já usa WhatsApp, não há nenhum treinamento extra.
             </p>
           </div>
         </div>
 
         <div class="faq-item animate-on-scroll">
           <div class="faq-question">
-            <span>Como fica a segurança dos dados?</span>
+            <span>Como fica a segurança dos dados dos pacientes?</span>
             <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
             <p>
-              Seguimos todas as normas da LGPD. Os dados são criptografados, processados e deletados automaticamente após o envio.<br>
+              Seguimos todas as normas da LGPD. Os dados odontológicos são criptografados,
+              processados e deletados automaticamente após envio.<br />
               Não armazenamos informações sensíveis dos pacientes.
             </p>
           </div>
@@ -778,7 +823,8 @@
           </div>
           <div class="faq-answer">
             <p>
-              Sim! Sem fidelidade, sem multas. Depois do período Beta, você decide se deseja continuar no plano standard.
+              Sim! Sem fidelidade, sem multas. Após o Beta, você decide se mantém o plano
+              standard odontológico.
             </p>
           </div>
         </div>
@@ -790,13 +836,18 @@
   <section class="final-cta">
     <div class="container">
       <div class="urgency-box animate-on-scroll">
-        <h2>Vagas Beta Limitadas</h2>
+        <h2>Vagas Beta Odonto Limitadas</h2>
         <p class="spots-remaining">Apenas 4 Vagas Restantes</p>
         <p>3 para São Paulo | 1 para Rio de Janeiro</p>
         <p style="margin-top: 20px; font-size: 1.1rem;">
-          Seja um dos pioneiros e envie suas guias TISS pelo WhatsApp com entrega direta na plataforma da operadora!
+          Seja um dos pioneiros e envie suas guias TISS odontológicas pelo WhatsApp com
+          entrega direta na plataforma da operadora!
         </p>
-        <a href="https://wa.me/55219990402450?text=Quero%20garantir%20minha%20vaga%20Beta%20na%20automação%20de%20guias%20TISS!" class="cta-button" target="_blank">
+        <a
+          href="https://wa.me/55219990402450?text=Quero%20garantir%20minha%20vaga%20Beta%20na%20automação%20de%20guias%20TISS%20odontológicas!"
+          class="cta-button"
+          target="_blank"
+        >
           <span>📱</span> Fale Conosco no WhatsApp
         </a>
       </div>
@@ -807,22 +858,21 @@
     // Animate on scroll
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
+      rootMargin: "0px 0px -50px 0px",
     };
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
         }
       });
     }, observerOptions);
-
-    document.querySelectorAll(".animate-on-scroll").forEach(el => {
+    document.querySelectorAll(".animate-on-scroll").forEach((el) => {
       observer.observe(el);
     });
 
     // FAQ Toggle
-    document.querySelectorAll(".faq-question").forEach(question => {
+    document.querySelectorAll(".faq-question").forEach((question) => {
       question.addEventListener("click", () => {
         const faqItem = question.parentElement;
         faqItem.classList.toggle("active");
@@ -830,14 +880,14 @@
     });
 
     // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function(e) {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute("href"));
         if (target) {
           target.scrollIntoView({
             behavior: "smooth",
-            block: "start"
+            block: "start",
           });
         }
       });
