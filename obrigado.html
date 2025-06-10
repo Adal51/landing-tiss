@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado! - Beta TISS</title>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1401380197753929');
+    fbq('track', 'PageView');
+    
+    // Conversão confirmada
+    fbq('track', 'CompleteRegistration', {
+        content_name: 'Beta TISS Registration Complete'
+    });
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" 
+             src="https://www.facebook.com/tr?id=1401380197753929&ev=PageView&noscript=1"/>
+    </noscript>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            padding: 3rem;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            color: #27ae60;
+            margin-bottom: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+
+        .next-steps {
+            background: #ecf0f1;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .next-steps h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .step-number {
+            background: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-info {
+            background: #3498db;
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+        }
+
+        .whatsapp-link {
+            display: inline-block;
+            background: #25d366;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-link:hover {
+            background: #1ebe5a;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .timeline {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .back-link {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            display: inline-block;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 2rem 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .success-icon {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">🎉</div>
+        
+        <h1>Obrigado!</h1>
+        <p class="subtitle">Seu interesse no beta foi registrado com sucesso</p>
+        
+        <div class="next-steps">
+            <h3>📋 Próximos Passos</h3>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Análise do seu perfil</strong><br>
+                    Vamos analisar as informações que você forneceu para entender melhor suas necessidades.
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Contato em até 24h</strong><br>
+                    Nossa equipe entrará em contato via WhatsApp ou email para agendar uma conversa.
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Demonstração personalizada</strong><br>
+                    Mostraremos como nossa solução pode funcionar especificamente para sua clínica.
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div>
+                    <strong>Acesso ao beta gratuito</strong><br>
+                    Se aprovado, você receberá acesso prioritário ao teste gratuito.
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline">
+            <h3>⏰ Timeline Esperado</h3>
+            <p><strong>Próximos 30-60 dias:</strong> Primeiros testes beta com clínicas selecionadas</p>
+            <p><strong>4-6 meses:</strong> Lançamento da versão completa</p>
+        </div>
+        
+        <div class="contact-info">
+            <h3>💬 Tem alguma dúvida urgente?</h3>
+            <p>Pode entrar em contato diretamente conosco:</p>
+            
+            <a href="https://wa.me/5521990402450?text=Oi!%20Acabei%20de%20me%20cadastrar%20no%20beta%20da%20automação%20TISS%20e%20tenho%20algumas%20dúvidas." 
+               class="whatsapp-link" 
+               target="_blank">
+                📱 Falar no WhatsApp
+            </a>
+        </div>
+        
+        <a href="javascript:history.back()" class="back-link">← Voltar ao site</a>
+    </div>
+
+    <script>
+        // Analytics adicionais
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL'
+            });
+        }
+    </script>
+</body>
+</html>
