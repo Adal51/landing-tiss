@@ -3,454 +3,601 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatISS - Digitação de Guias TISS em 7 Segundos</title>
+    <title>Automação de Guias TISS - Beta Privado</title>
     <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "ruqtdxe8hv");
-</script>
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1401380197753929');
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" 
+             src="https://www.facebook.com/tr?id=1401380197753929&ev=PageView&noscript=1"/>
+    </noscript>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #fff;
-        }
-        
-        /* Botão WhatsApp Flutuante */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            animation: pulse 2s infinite;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
-            50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.8); }
-            100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
-        }
-        
-        /* Hero Section */
-        .hero {
+            color: #2c3e50;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 20px 60px;
-            text-align: center;
+            min-height: 100vh;
         }
-        
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+            padding-top: 2rem;
+        }
+
         .beta-badge {
             display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-        }
-        
-        h1 {
-            font-size: 32px;
-            margin-bottom: 15px;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-        
-        .subtitle {
-            font-size: 20px;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-        
-        .cta-button {
-            background: #25D366;
+            background: #ff6b6b;
             color: white;
-            padding: 18px 35px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
         }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
-        
-        .savings {
-            margin-top: 25px;
-            font-size: 16px;
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
             opacity: 0.9;
-        }
-        
-        /* Problem Section */
-        .problem {
-            padding: 50px 20px;
-            text-align: center;
-            background: #f8f9fa;
-        }
-        
-        .problem h2 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: #333;
-        }
-        
-        .pain-points {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
             max-width: 600px;
             margin: 0 auto;
         }
-        
-        .pain-point {
+
+        .main-content {
             background: white;
-            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .hero-section {
+            padding: 3rem;
+            text-align: center;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        }
+
+        .status-card {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .status-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-section {
+            padding: 3rem;
+            background: #f8f9fa;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #e74c3c;
+        }
+
+        .solution-section {
+            padding: 3rem;
+        }
+
+        .solution-preview {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .beta-form-section {
+            padding: 3rem;
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #34495e;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: white;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1ebe5a;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .benefits-section {
+            padding: 3rem;
+            background: #ecf0f1;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #27ae60;
+            margin-bottom: 1rem;
+        }
+
+        .faq-section {
+            padding: 3rem;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            gap: 15px;
         }
-        
-        .pain-icon {
-            font-size: 30px;
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background 0.3s;
         }
-        
-        /* Solution Section */
-        .solution {
-            padding: 50px 20px;
-            text-align: center;
-        }
-        
-        .solution h2 {
-            font-size: 28px;
-            margin-bottom: 40px;
-            color: #333;
-        }
-        
-        .steps {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            max-width: 400px;
-            margin: 0 auto 40px;
-        }
-        
-        .step {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            text-align: left;
-        }
-        
-        .step-number {
-            background: #667eea;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-        
-        .step-text h3 {
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-        
-        .step-text p {
-            color: #666;
-            font-size: 14px;
-        }
-        
-        /* Pricing Section */
-        .pricing {
-            padding: 50px 20px;
+
+        .faq-question:hover {
             background: #f8f9fa;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #666;
+        }
+
+        .stats-section {
+            background: #34495e;
+            color: white;
+            padding: 2rem;
             text-align: center;
         }
-        
-        .pricing h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
         }
-        
-        .price-box {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 400px;
-            margin: 0 auto;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 0.5rem;
         }
-        
-        .price-original {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 18px;
-        }
-        
-        .price-beta {
-            font-size: 48px;
-            font-weight: bold;
-            color: #667eea;
-            margin: 10px 0;
-        }
-        
-        .price-label {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-        
-        .price-benefits {
-            text-align: left;
-            margin: 20px 0;
-        }
-        
-        .price-benefits li {
-            list-style: none;
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        /* FAQ Section */
-        .faq {
-            padding: 50px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq h2 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .faq-item {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
-        }
-        
-        .faq-item h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        
-        .faq-item p {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        /* Mobile */
+
         @media (max-width: 768px) {
             h1 {
-                font-size: 26px;
+                font-size: 2rem;
             }
             
-            .subtitle {
-                font-size: 18px;
+            .container {
+                padding: 10px;
             }
             
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-                padding: 12px 20px;
-                font-size: 16px;
+            .hero-section,
+            .problem-section,
+            .solution-section,
+            .beta-form-section {
+                padding: 2rem 1.5rem;
             }
-            
-            .cta-button {
-                font-size: 16px;
-                padding: 15px 30px;
-            }
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            display: none;
         }
     </style>
 </head>
 <body>
-    <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5521990402450?text=Olá! Quero testar o WhatISS gratuitamente" class="whatsapp-float" target="_blank">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-        Testar Grátis
-    </a>
+    <div class="container">
+        <header>
+            <div class="beta-badge">🚧 BETA PRIVADO</div>
+            <h1>Automação de Guias TISS</h1>
+            <p class="subtitle">Estamos desenvolvendo a primeira IA que transforma fotos de documentos em guias TISS preenchidas automaticamente</p>
+        </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <span class="beta-badge">🚀 Acesso Beta Exclusivo</span>
-        <h1>Chega de Digitar Guias TISS!</h1>
-        <p class="subtitle">Foto no WhatsApp → Direto no Sistema do Convênio</p>
-        
-        <a href="https://wa.me/5521990402450?text=Olá! Quero testar o WhatISS gratuitamente" class="cta-button" target="_blank">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-            Quero Começar Agora
-        </a>
-        
-        <p class="savings">💰 Economize R$4,67 por guia + 2 horas por dia</p>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="problem">
-        <h2>Sua equipe perde tempo precioso todo dia...</h2>
-        <div class="pain-points">
-            <div class="pain-point">
-                <span class="pain-icon">⏰</span>
-                <div>
-                    <strong>5 minutos por guia</strong> - Campo por campo, sem errar
+        <div class="main-content">
+            <div class="hero-section">
+                <div class="status-card">
+                    <div class="status-icon">🔬</div>
+                    <h2>Em Desenvolvimento Ativo</h2>
+                    <p><strong>Estamos sendo transparentes:</strong> nosso produto ainda está em fase de desenvolvimento e testes com clínicas parceiras. Procuramos profissionais de saúde para participar do nosso programa beta <span class="highlight">totalmente gratuito</span>.</p>
                 </div>
             </div>
-            <div class="pain-point">
-                <span class="pain-icon">😤</span>
-                <div>
-                    <strong>Erros = Retrabalho</strong> - Glosas e perda de receita
+
+            <div class="problem-section">
+                <h2>O Problema que Estamos Resolvendo</h2>
+                <div class="problem-grid">
+                    <div class="problem-card">
+                        <div class="problem-icon">⏰</div>
+                        <h3>Tempo Perdido</h3>
+                        <p>Clínicas gastam <strong>horas diárias</strong> digitando manualmente informações que já estão escritas em receitas e documentos.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-icon">❌</div>
+                        <h3>Erros e Glosas</h3>
+                        <p>Digitação manual gera erros que resultam em <strong>glosas</strong> e retrabalho constante.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-icon">💸</div>
+                        <h3>Custo Operacional</h3>
+                        <p>Funcionários dedicados apenas para <strong>preencher guias</strong> representam custo significativo.</p>
+                    </div>
                 </div>
             </div>
-            <div class="pain-point">
-                <span class="pain-icon">💸</span>
-                <div>
-                    <strong>Funcionário só pra isso</strong> - Ou dentista fazendo após expediente
+
+            <div class="solution-section">
+                <h2>Nossa Solução em Desenvolvimento</h2>
+                <div class="solution-preview">
+                    <h3>🤖 Como Funcionará:</h3>
+                    <p><strong>1.</strong> Tire uma foto da receita/documento pelo WhatsApp</p>
+                    <p><strong>2.</strong> Nossa IA extrai e interpreta as informações</p>
+                    <p><strong>3.</strong> Guia TISS é preenchida automaticamente</p>
+                    <p><strong>4.</strong> Dados são enviados direto para o sistema do convênio</p>
+                </div>
+                
+                <div class="stats-section">
+                    <h3>Potencial de Economia (Baseado em Testes Iniciais)</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3>80%</h3>
+                            <p>Redução no tempo de preenchimento</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>90%</h3>
+                            <p>Menos erros de digitação</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>2-3h</h3>
+                            <p>Economia diária estimada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="beta-form-section">
+                <h2>🎯 Junte-se ao Nosso Programa Beta</h2>
+                <p>Procuramos clínicas e consultórios para testar nossa solução <strong>gratuitamente</strong> e nos ajudar a aperfeiçoá-la.</p>
+                
+                <div class="form-container">
+                    <!-- SUBSTITUA 'SEU_EMAIL' pelo seu email real -->
+                    <form id="betaForm" action="https://formspree.io/f/xdkzebjp" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nome Completo *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Profissional *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">WhatsApp *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="clinic">Nome da Clínica/Consultório *</label>
+                            <input type="text" id="clinic" name="clinic" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="specialty">Especialidade Principal *</label>
+                            <select id="specialty" name="specialty" required>
+                                <option value="">Selecione...</option>
+                                <option value="cardiologia">Cardiologia</option>
+                                <option value="dermatologia">Dermatologia</option>
+                                <option value="endocrinologia">Endocrinologia</option>
+                                <option value="ginecologia">Ginecologia</option>
+                                <option value="neurologia">Neurologia</option>
+                                <option value="ortopedia">Ortopedia</option>
+                                <option value="pediatria">Pediatria</option>
+                                <option value="psiquiatria">Psiquiatria</option>
+                                <option value="clinica-geral">Clínica Geral</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="volume">Quantas guias TISS vocês preenchem por mês? *</label>
+                            <select id="volume" name="volume" required>
+                                <option value="">Selecione...</option>
+                                <option value="0-100">0 a 100 guias</option>
+                                <option value="101-500">101 a 500 guias</option>
+                                <option value="501-1000">501 a 1.000 guias</option>
+                                <option value="1001-2000">1.001 a 2.000 guias</option>
+                                <option value="2000+">Mais de 2.000 guias</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="pain">Qual sua maior dificuldade com guias TISS hoje?</label>
+                            <textarea id="pain" name="pain" placeholder="Ex: Muito tempo para preencher, erros frequentes, glosas, etc."></textarea>
+                        </div>
+
+                        <!-- Campo oculto para identificar origem -->
+                        <input type="hidden" name="_subject" value="🚀 NOVO LEAD BETA TISS">
+                        <input type="hidden" name="_next" value="https://www.whatiss.com.br/obrigado.html">
+                        
+                        <button type="submit" class="btn-primary" onclick="trackFormSubmit()">
+                            📝 Quero Participar do Beta Gratuito
+                        </button>
+                        
+                        <div style="text-align: center; margin: 1.5rem 0; color: #7f8c8d;">
+                            <span>━━━━━━━━━━ ou ━━━━━━━━━━</span>
+                        </div>
+                        
+                        <a href="https://wa.me/5521990402450?text=Oi!%20Vi%20sobre%20o%20beta%20da%20automação%20de%20guias%20TISS.%20Gostaria%20de%20saber%20mais%20e%20participar%20do%20teste%20gratuito.%20Sou%20de%20uma%20clínica/consultório%20e%20temos%20interesse!" 
+                           class="btn-whatsapp" 
+                           target="_blank"
+                           onclick="trackWhatsAppClick()">
+                            💬 Conversar pelo WhatsApp
+                        </a>
+                        
+                        <div class="success-message" id="successMessage">
+                            ✅ Obrigado! Entraremos em contato em até 24h para agendar uma conversa.
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="benefits-section">
+                <h2>Por que Participar do Nosso Beta?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🆓</div>
+                        <h3>100% Gratuito</h3>
+                        <p>Teste completo sem custo durante todo o período beta</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🏆</div>
+                        <h3>Seja o Primeiro</h3>
+                        <p>Acesso exclusivo antes do lançamento oficial</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎯</div>
+                        <h3>Molde o Produto</h3>
+                        <p>Sua opinião influenciará diretamente o desenvolvimento</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🤝</div>
+                        <h3>Suporte Dedicado</h3>
+                        <p>Acompanhamento próximo da nossa equipe técnica</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h2>Perguntas Frequentes</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ Quando o produto estará pronto?</div>
+                    <div class="faq-answer">Estimamos que o beta estará disponível para as primeiras clínicas em 30-60 dias. O produto final deve estar pronto em 4-6 meses.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ É seguro? Cumpre a LGPD?</div>
+                    <div class="faq-answer">Sim, estamos desenvolvendo com foco total em segurança e conformidade com LGPD. Dados são processados e deletados automaticamente.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ Funciona com qualquer convênio?</div>
+                    <div class="faq-answer">Estamos integrando os principais convênios. Se o seu não estiver incluído inicialmente, priorizaremos sua integração.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ E se eu não gostar?</div>
+                    <div class="faq-answer">Como é beta gratuito, você pode sair a qualquer momento. Sem compromisso, sem pegadinhas.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">❓ Quantas clínicas vocês vão aceitar no beta?</div>
+                    <div class="faq-answer">Limitaremos a 20-30 clínicas para garantir acompanhamento de qualidade e desenvolvimento adequado.</div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Solution Section -->
-    <section class="solution">
-        <h2>Com WhatISS é Ridiculamente Simples</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-text">
-                    <h3>Tire a Foto</h3>
-                    <p>Da guia TISS preenchida</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-text">
-                    <h3>Envie no WhatsApp</h3>
-                    <p>Como uma mensagem normal</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-text">
-                    <h3>Pronto!</h3>
-                    <p>Já está no sistema do convênio</p>
-                </div>
-            </div>
-        </div>
-        
-        <a href="https://wa.me/5521990402450?text=Olá! Quero testar o WhatISS gratuitamente" class="cta-button" target="_blank">
-            Testar Gratuitamente →
-        </a>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing">
-        <h2>Preço Especial para Pioneiros</h2>
-        <div class="price-box">
-            <div class="price-original">R$ 5,00/guia (digitação manual)</div>
-            <div class="price-beta">R$ 0,33</div>
-            <div class="price-label">por guia no período beta</div>
+    <script>
+        // Tracking de Conversões Meta Pixel
+        function trackFormSubmit() {
+            // Envia evento para Meta Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Beta TISS Form',
+                    content_category: 'form_submission'
+                });
+            }
             
-            <ul class="price-benefits">
-                <li>✅ Teste grátis por 7 dias</li>
-                <li>✅ Cancele quando quiser</li>
-                <li>✅ Preço garantido para sempre</li>
-                <li>✅ Suporte prioritário via WhatsApp</li>
-            </ul>
+            // Clarity event
+            if (typeof clarity !== 'undefined') {
+                clarity('event', 'form_submit');
+            }
+        }
+
+        function trackWhatsAppClick() {
+            // Envia evento para Meta Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Beta TISS WhatsApp',
+                    content_category: 'whatsapp_click'
+                });
+            }
             
-            <a href="https://wa.me/5521990402450?text=Olá! Quero testar o WhatISS gratuitamente" class="cta-button" target="_blank">
-                Garantir Meu Acesso Beta
-            </a>
-        </div>
-    </section>
+            // Clarity event
+            if (typeof clarity !== 'undefined') {
+                clarity('event', 'whatsapp_click');
+            }
+        }
 
-    <!-- FAQ Section -->
-    <section class="faq">
-        <h2>Perguntas Frequentes</h2>
-        
-        <div class="faq-item">
-            <h3>📱 Preciso instalar algum app?</h3>
-            <p>Não! Funciona no WhatsApp que você já usa. Sem login, sem senha, sem complicação.</p>
-        </div>
-        
-        <div class="faq-item">
-            <h3>🎯 A foto precisa estar perfeita?</h3>
-            <p>Não, nossa IA é treinada para ler fotos de celular comuns. Se não der certo na primeira, é só tirar outra.</p>
-        </div>
-        
-        <div class="faq-item">
-            <h3>🏥 Funciona com meu convênio?</h3>
-            <p>Estamos integrando novos convênios toda semana. Se o seu ainda não estiver, adicionamos em até 48h.</p>
-        </div>
-        
-        <div class="faq-item">
-            <h3>🔒 É seguro?</h3>
-            <p>Totalmente! Usamos a criptografia do WhatsApp + LGPD. Dados são processados e deletados automaticamente.</p>
-        </div>
-        
-        <div class="faq-item">
-            <h3>💡 E se eu não gostar?</h3>
-            <p>Teste grátis por 7 dias. Cancele quando quiser, sem multa, sem pegadinha. Simples assim.</p>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="hero" style="padding: 40px 20px;">
-        <h2 style="font-size: 24px; margin-bottom: 20px;">Comece a Economizar Hoje Mesmo</h2>
-        <a href="https://wa.me/5521990402450?text=Olá! Quero testar o WhatISS gratuitamente" class="cta-button" target="_blank">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-            Ativar Teste Grátis no WhatsApp
-        </a>
-        <p style="margin-top: 15px; font-size: 14px; opacity: 0.9;">
-            Resposta em menos de 2 minutos
-        </p>
-    </section>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isVisible = answer.style.display === 'block';
+                
+                // Hide all answers
+                document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+                
+                // Show clicked answer if it wasn't visible
+                if (!isVisible) {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
