@@ -552,18 +552,31 @@
     </div>
 
     <script>
+        // Função de teste simples
+        function testForm() {
+            alert('Botão foi clicado! JavaScript funcionando.');
+            console.log('Test function called!');
+            return false; // Impede envio do form
+        }
+
         // Aguardar DOM carregar
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded!');
+            
             const form = document.getElementById('betaForm');
             const submitBtn = document.getElementById('submitBtn');
             const successMsg = document.getElementById('successMessage');
             const errorMsg = document.getElementById('errorMessage');
+            
+            console.log('Form found:', form);
+            console.log('Submit button found:', submitBtn);
             
             if (form) {
                 form.addEventListener('submit', async function(event) {
                     event.preventDefault(); // Impede envio padrão
                     
                     console.log('Form intercepted successfully!');
+                    alert('Form submit intercepted!'); // Debug visual
                     
                     // Ocultar mensagens
                     successMsg.style.display = 'none';
@@ -635,6 +648,10 @@
                         submitBtn.disabled = false;
                     }
                 });
+                
+                console.log('Event listener added to form');
+            } else {
+                console.error('Form not found!');
             }
         });
 
