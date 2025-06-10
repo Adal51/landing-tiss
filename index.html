@@ -552,49 +552,30 @@
     </div>
 
     <script>
-        // Função básica de teste
-        function testForm() {
-            alert('JavaScript funcionando! Teste de onclick.');
-            console.log('Test function executada!');
+        // Função chamada no submit do form
+        function handleSubmit(event) {
+            console.log('Form submit intercepted!');
             
-            // Tentar enviar form manualmente
-            var form = document.getElementById('betaForm');
-            if (form) {
-                sendFormData();
-            }
-            return false;
-        }
-
-        // Função para enviar dados
-        function sendFormData() {
-            console.log('Iniciando envio do formulário...');
-            
-            // Coletar dados
-            var nome = document.getElementById('nome').value;
-            var email = document.getElementById('email').value;
-            var telefone = document.getElementById('telefone').value;
-            var clinica = document.getElementById('clinica').value;
-            var cidade = document.getElementById('cidade').value;
-            var volume = document.getElementById('volume').value;
-            
-            // Validação básica
-            if (!nome || !email || !telefone || !clinica || !cidade || !volume) {
-                alert('Por favor, preencha todos os campos!');
-                return;
+            // Tracking imediato
+            try {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Lead', {
+                        content_name: 'Beta TISS Form',
+                        content_category: 'form_submission'
+                    });
+                    console.log('Meta pixel: Lead tracked');
+                }
+            } catch(e) {
+                console.log('Meta tracking error:', e);
             }
             
-            // Tracking
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'Lead', {
-                    content_name: 'Beta TISS Form',
-                    content_category: 'form_submission'
-                });
-                console.log('Meta pixel: Lead tracked');
-            }
-            
-            if (typeof clarity !== 'undefined') {
-                clarity('event', 'form_submit');
-                console.log('Clarity: event tracked');
+            try {
+                if (typeof clarity !== 'undefined') {
+                    clarity('event', 'form_submit');
+                    console.log('Clarity: event tracked');
+                }
+            } catch(e) {
+                console.log('Clarity tracking error:', e);
             }
             
             // Atualizar botão
@@ -604,58 +585,15 @@
                 submitBtn.disabled = true;
             }
             
-            // Preparar dados para envio
-            var formData = new FormData();
-            formData.append('nome', nome);
-            formData.append('email', email);
-            formData.append('telefone', telefone);
-            formData.append('clinica', clinica);
-            formData.append('cidade', cidade);
-            formData.append('volume', volume);
-            formData.append('_subject', '🚀 NOVO LEAD BETA TISS');
-            
-            // Usar XMLHttpRequest (mais compatível)
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://formspree.io/f/xdkoqpgz', true);
-            xhr.setRequestHeader('Accept', 'application/json');
-            
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4) {
-                    console.log('Response status:', xhr.status);
-                    
-                    if (xhr.status === 200) {
-                        console.log('Formulário enviado com sucesso!');
-                        
-                        // Mostrar sucesso
-                        var successMsg = document.getElementById('successMessage');
-                        if (successMsg) {
-                            successMsg.style.display = 'block';
-                        }
-                        
-                        // Redirecionar após 2 segundos
-                        setTimeout(function() {
-                            window.location.href = 'https://www.whatiss.com.br/obrigado.html';
-                        }, 2000);
-                        
-                    } else {
-                        console.error('Erro no envio:', xhr.status);
-                        
-                        // Mostrar erro
-                        var errorMsg = document.getElementById('errorMessage');
-                        if (errorMsg) {
-                            errorMsg.style.display = 'block';
-                        }
-                        
-                        // Restaurar botão
-                        if (submitBtn) {
-                            submitBtn.innerHTML = '📝 Quero Participar do Beta Gratuito';
-                            submitBtn.disabled = false;
-                        }
-                    }
-                }
-            };
-            
-            xhr.send(formData);
+            // Deixar o form enviar normalmente (com _next)
+            // O Formspree vai tentar redirecionar com o campo _next
+            return true;
+        }
+
+        // Versão alternativa para caso o onsubmit não funcione
+        function testForm() {
+            console.log('Test function executada via onclick!');
+            return handleSubmit();
         }
 
         // Tracking WhatsApp (simplificado)
