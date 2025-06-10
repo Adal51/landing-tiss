@@ -552,112 +552,115 @@
     </div>
 
     <script>
-        // Função de teste simples
+        // Função básica de teste
         function testForm() {
-            alert('Botão foi clicado! JavaScript funcionando.');
-            console.log('Test function called!');
-            return false; // Impede envio do form
+            alert('JavaScript funcionando! Teste de onclick.');
+            console.log('Test function executada!');
+            
+            // Tentar enviar form manualmente
+            var form = document.getElementById('betaForm');
+            if (form) {
+                sendFormData();
+            }
+            return false;
         }
 
-        // Aguardar DOM carregar
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM loaded!');
+        // Função para enviar dados
+        function sendFormData() {
+            console.log('Iniciando envio do formulário...');
             
-            const form = document.getElementById('betaForm');
-            const submitBtn = document.getElementById('submitBtn');
-            const successMsg = document.getElementById('successMessage');
-            const errorMsg = document.getElementById('errorMessage');
+            // Coletar dados
+            var nome = document.getElementById('nome').value;
+            var email = document.getElementById('email').value;
+            var telefone = document.getElementById('telefone').value;
+            var clinica = document.getElementById('clinica').value;
+            var cidade = document.getElementById('cidade').value;
+            var volume = document.getElementById('volume').value;
             
-            console.log('Form found:', form);
-            console.log('Submit button found:', submitBtn);
+            // Validação básica
+            if (!nome || !email || !telefone || !clinica || !cidade || !volume) {
+                alert('Por favor, preencha todos os campos!');
+                return;
+            }
             
-            if (form) {
-                form.addEventListener('submit', async function(event) {
-                    event.preventDefault(); // Impede envio padrão
+            // Tracking
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Beta TISS Form',
+                    content_category: 'form_submission'
+                });
+                console.log('Meta pixel: Lead tracked');
+            }
+            
+            if (typeof clarity !== 'undefined') {
+                clarity('event', 'form_submit');
+                console.log('Clarity: event tracked');
+            }
+            
+            // Atualizar botão
+            var submitBtn = document.getElementById('submitBtn');
+            if (submitBtn) {
+                submitBtn.innerHTML = '⏳ Enviando...';
+                submitBtn.disabled = true;
+            }
+            
+            // Preparar dados para envio
+            var formData = new FormData();
+            formData.append('nome', nome);
+            formData.append('email', email);
+            formData.append('telefone', telefone);
+            formData.append('clinica', clinica);
+            formData.append('cidade', cidade);
+            formData.append('volume', volume);
+            formData.append('_subject', '🚀 NOVO LEAD BETA TISS');
+            
+            // Usar XMLHttpRequest (mais compatível)
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://formspree.io/f/xdkoqpgz', true);
+            xhr.setRequestHeader('Accept', 'application/json');
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    console.log('Response status:', xhr.status);
                     
-                    console.log('Form intercepted successfully!');
-                    alert('Form submit intercepted!'); // Debug visual
-                    
-                    // Ocultar mensagens
-                    successMsg.style.display = 'none';
-                    errorMsg.style.display = 'none';
-                    
-                    // Tracking imediato
-                    if (typeof fbq !== 'undefined') {
-                        fbq('track', 'Lead', {
-                            content_name: 'Beta TISS Form',
-                            content_category: 'form_submission'
-                        });
-                        console.log('Meta pixel tracked');
-                    }
-                    
-                    if (typeof clarity !== 'undefined') {
-                        clarity('event', 'form_submit');
-                        console.log('Clarity tracked');
-                    }
-                    
-                    // Preparar dados
-                    const formData = new FormData();
-                    formData.append('nome', document.getElementById('nome').value);
-                    formData.append('email', document.getElementById('email').value);
-                    formData.append('telefone', document.getElementById('telefone').value);
-                    formData.append('clinica', document.getElementById('clinica').value);
-                    formData.append('cidade', document.getElementById('cidade').value);
-                    formData.append('volume', document.getElementById('volume').value);
-                    formData.append('_subject', '🚀 NOVO LEAD BETA TISS');
-                    
-                    // UI: Botão carregando
-                    const originalText = submitBtn.innerHTML;
-                    submitBtn.innerHTML = '⏳ Enviando...';
-                    submitBtn.disabled = true;
-                    
-                    try {
-                        // Enviar para Formspree
-                        const response = await fetch('https://formspree.io/f/xdkoqpgz', {
-                            method: 'POST',
-                            body: formData,
-                            headers: {
-                                'Accept': 'application/json'
-                            }
-                        });
+                    if (xhr.status === 200) {
+                        console.log('Formulário enviado com sucesso!');
                         
-                        console.log('Response status:', response.status);
-                        
-                        if (response.ok) {
-                            // Sucesso!
-                            console.log('Form sent successfully!');
+                        // Mostrar sucesso
+                        var successMsg = document.getElementById('successMessage');
+                        if (successMsg) {
                             successMsg.style.display = 'block';
-                            
-                            // Aguardar 2 segundos e redirecionar
-                            setTimeout(function() {
-                                window.location.href = 'https://www.whatiss.com.br/obrigado.html';
-                            }, 2000);
-                            
-                        } else {
-                            throw new Error('Response not ok: ' + response.status);
                         }
                         
-                    } catch (error) {
-                        console.error('Error sending form:', error);
+                        // Redirecionar após 2 segundos
+                        setTimeout(function() {
+                            window.location.href = 'https://www.whatiss.com.br/obrigado.html';
+                        }, 2000);
+                        
+                    } else {
+                        console.error('Erro no envio:', xhr.status);
                         
                         // Mostrar erro
-                        errorMsg.style.display = 'block';
+                        var errorMsg = document.getElementById('errorMessage');
+                        if (errorMsg) {
+                            errorMsg.style.display = 'block';
+                        }
                         
                         // Restaurar botão
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.disabled = false;
+                        if (submitBtn) {
+                            submitBtn.innerHTML = '📝 Quero Participar do Beta Gratuito';
+                            submitBtn.disabled = false;
+                        }
                     }
-                });
-                
-                console.log('Event listener added to form');
-            } else {
-                console.error('Form not found!');
-            }
-        });
+                }
+            };
+            
+            xhr.send(formData);
+        }
 
-        // Tracking WhatsApp
+        // Tracking WhatsApp (simplificado)
         function trackWhatsAppClick() {
-            console.log('WhatsApp clicked!');
+            console.log('WhatsApp clicado!');
             
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead', {
@@ -671,23 +674,22 @@
             }
         }
 
-        // FAQ Toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', function() {
-                    const answer = this.nextElementSibling;
-                    const isVisible = answer.style.display === 'block';
-                    
-                    // Hide all answers
-                    document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
-                    
-                    // Show clicked answer if it wasn't visible
-                    if (!isVisible) {
-                        answer.style.display = 'block';
-                    }
-                });
-            });
-        });
+        // FAQ Toggle (simplificado)
+        function toggleFAQ(element) {
+            var answer = element.nextElementSibling;
+            var isVisible = answer.style.display === 'block';
+            
+            // Fechar todas
+            var allAnswers = document.querySelectorAll('.faq-answer');
+            for (var i = 0; i < allAnswers.length; i++) {
+                allAnswers[i].style.display = 'none';
+            }
+            
+            // Mostrar se não estava visível
+            if (!isVisible) {
+                answer.style.display = 'block';
+            }
+        }
     </script>
 </body>
 </html>
